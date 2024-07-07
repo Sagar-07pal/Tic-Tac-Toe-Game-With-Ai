@@ -143,14 +143,30 @@
         </GridLayout>
     </androidx.cardview.widget.CardView>
     <!--    RESTART BUTTON-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnre"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:onClick="firkaro"
-        android:textColorHint="#020202"
-        android:hint="RESTART"
-        />
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:hint="RESTART"
+            android:onClick="firkaro"
+            android:textColorHint="#020202"
+            android:textSize="17sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnagain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:hint="PLAY AGAIN"
+            android:onClick="firkaro"
+            android:textColorHint="#020202"
+            android:textSize="17sp" />
+    </LinearLayout>
 
 </LinearLayout>

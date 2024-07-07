@@ -46,10 +46,61 @@ import androidx.core.view.WindowInsetsCompat;
                 count = 0;
             }
         }
+        if(flag>4){
+            value();
+//            1
+            if (b1.equals(b2) && b2.equals(b3) && !b1.isEmpty() )  {
+                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            2
+          else if (b4.equals(b5) && b5.equals(b6) && !b4.isEmpty() )  {
+                Toast.makeText(this, b4+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            3
+           else if (b7.equals(b8) && b8.equals(b9) && !b7.isEmpty() )  {
+                Toast.makeText(this, b7+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            4  DIAGONAL
+            else if (b1.equals(b5) && b5.equals(b9) && !b5.isEmpty() )  {
+                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            5 DIAGONAL
+            else if (b3.equals(b5) && b5.equals(b7) && !b3.isEmpty() )  {
+                Toast.makeText(this, b3+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            6
+            else if (b1.equals(b4) && b4.equals(b7) && !b4.isEmpty() )  {
+                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            7
+            else if (b2.equals(b5) && b5.equals(b8) && !b8.isEmpty() )  {
+                Toast.makeText(this, b2+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            8
+            else if (b3.equals(b6) && b6.equals(b9) && !b9.isEmpty() )  {
+                Toast.makeText(this, b3+"  WINNER", Toast.LENGTH_SHORT).show();
+            }
+//            9
+            else {
+                Toast.makeText(this, "DRAW", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
-    //    //Ids are found
-    public void init() {
+        private void value() {
+            b1=btn1.getText().toString();
+            b2=btn2.getText().toString();
+            b3=btn3.getText().toString();
+            b4=btn4.getText().toString();
+            b5=btn5.getText().toString();
+            b6=btn6.getText().toString();
+            b7=btn7.getText().toString();
+            b8=btn8.getText().toString();
+            b9=btn9.getText().toString();
+        }
+
+        //    //Ids are found
+    private void init() {
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
