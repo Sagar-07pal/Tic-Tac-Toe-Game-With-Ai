@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F4042"
+    tools:context=".MainActivity"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TURN :"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginBottom="30dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_bjp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:text="USER 1"
+            android:layout_marginRight="1dp"
+
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tmc"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:text="USER 2"
+
+            />
+
+    </GridLayout>
+    <!--CARD-VIEW-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="299dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="#3F4042"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="40dp"
+        android:layout_margin="30dp">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="3">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn1"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn2"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn3"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn4"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn5"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn6"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn7"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn8"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn9"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/game_btn"
+                android:onClick="click"
+                android:textSize="30sp" />
+        </GridLayout>
+    </androidx.cardview.widget.CardView>
+    <!--    RESTART BUTTON-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:onClick="firkaro"
+        android:textColorHint="#020202"
+        android:hint="RESTART"
+        />
+
+</LinearLayout>
