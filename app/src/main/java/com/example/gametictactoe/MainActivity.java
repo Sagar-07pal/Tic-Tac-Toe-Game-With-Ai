@@ -1,7 +1,7 @@
 package com.example.gametictactoe;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
     public class MainActivity extends AppCompatActivity implements com.example.tictactoe.MainActivity {
 // ALL BUTTONS
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncurr, btnre;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncurr,turn_x,turn_o,play_again;
 
     String b1, b2, b5, b3, b6, b8, b9, b4, b7;
     int flag = 0, count = 0;
@@ -30,7 +30,15 @@ import androidx.core.view.WindowInsetsCompat;
             return insets;
         });
         init();
+        turn_x.setBackgroundResource(R.drawable.turn_btn);
+        play_again.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playagain();
+            }
+       });
     }
+
 //     WHEN BUTTON IS CLICKED
     public void click(View view) {
         btncurr = (Button) view;  // CURRENT BUTTON REFERENCE
@@ -40,9 +48,13 @@ import androidx.core.view.WindowInsetsCompat;
         if (btncurr.getText().toString().isEmpty()) {
             if (count == 0) {
                 btncurr.setText("X");
+                turn_o.setBackgroundResource(R.drawable.turn_btn);
+                turn_x.setBackgroundResource(R.drawable.turnoff);
                 count = 1;
             } else {
                 btncurr.setText("O");
+                turn_x.setBackgroundResource(R.drawable.turn_btn);
+                turn_o.setBackgroundResource(R.drawable.turnoff);
                 count = 0;
             }
         }
@@ -81,7 +93,7 @@ import androidx.core.view.WindowInsetsCompat;
                 Toast.makeText(this, b3+"  WINNER", Toast.LENGTH_SHORT).show();
             }
 //            9
-            else {
+            else if(flag==9) {
                 Toast.makeText(this, "DRAW", Toast.LENGTH_SHORT).show();
             }
         }
@@ -110,6 +122,23 @@ import androidx.core.view.WindowInsetsCompat;
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
-        btnre = findViewById(R.id.btnre);
+        turn_x=findViewById(R.id.btn_x);
+        turn_o=findViewById(R.id.btn_o);
+        play_again=findViewById(R.id.btnagain);
+    }
+    public void playagain(){
+        count=0;
+        flag=0;
+        btn1.setText("");
+        btn2.setText("");
+        btn3.setText("");
+        btn4.setText("");
+        btn5.setText("");
+        btn6.setText("");
+        btn7.setText("");
+        btn8.setText("");
+        btn9.setText("");
+        turn_x.setBackgroundResource(R.drawable.turn_btn);
+        turn_o.setBackgroundResource(R.drawable.turnoff);
     }
 }
