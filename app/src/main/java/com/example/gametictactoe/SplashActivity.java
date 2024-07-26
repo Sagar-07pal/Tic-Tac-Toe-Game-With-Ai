@@ -1,6 +1,8 @@
 package com.example.gametictactoe;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,5 +39,25 @@ public class SplashActivity extends AppCompatActivity {
                                           }
                                       }
         );
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder exit = new AlertDialog.Builder(this);
+        exit.setIcon(R.drawable.exit_icon);
+        exit.setTitle("Exit");
+        exit.setMessage("Are you want to exit ?");
+        exit.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SplashActivity.super.onBackPressed();
+            }
+        });
+        exit.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        exit.show();
     }
 }

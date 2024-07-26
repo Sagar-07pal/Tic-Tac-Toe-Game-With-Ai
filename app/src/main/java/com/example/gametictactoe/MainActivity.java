@@ -1,9 +1,11 @@
 package com.example.gametictactoe;
 
+import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,9 +16,11 @@ import androidx.core.view.WindowInsetsCompat;
 
     public class MainActivity extends AppCompatActivity implements com.example.tictactoe.MainActivity {
 // ALL BUTTONS
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncurr,turn_x,turn_o,play_again;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncurr,turn_x,turn_o,play_again,btn_ok;
 
     String b1, b2, b5, b3, b6, b8, b9, b4, b7;
+    TextView winner_text;
+    Dialog winning_dialog;
     int flag = 0, count = 0;
 
     @Override
@@ -62,39 +66,39 @@ import androidx.core.view.WindowInsetsCompat;
             value();
 //            1
             if (b1.equals(b2) && b2.equals(b3) && !b1.isEmpty() )  {
-                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b1);
             }
 //            2
           else if (b4.equals(b5) && b5.equals(b6) && !b4.isEmpty() )  {
-                Toast.makeText(this, b4+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b4);
             }
 //            3
            else if (b7.equals(b8) && b8.equals(b9) && !b7.isEmpty() )  {
-                Toast.makeText(this, b7+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b7);
             }
 //            4  DIAGONAL
             else if (b1.equals(b5) && b5.equals(b9) && !b5.isEmpty() )  {
-                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b5);
             }
 //            5 DIAGONAL
             else if (b3.equals(b5) && b5.equals(b7) && !b3.isEmpty() )  {
-                Toast.makeText(this, b3+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b3);
             }
 //            6
             else if (b1.equals(b4) && b4.equals(b7) && !b4.isEmpty() )  {
-                Toast.makeText(this, b1+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b1);
             }
 //            7
             else if (b2.equals(b5) && b5.equals(b8) && !b8.isEmpty() )  {
-                Toast.makeText(this, b2+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b2);
             }
 //            8
             else if (b3.equals(b6) && b6.equals(b9) && !b9.isEmpty() )  {
-                Toast.makeText(this, b3+"  WINNER", Toast.LENGTH_SHORT).show();
+                dialog_show(b6);
             }
 //            9
             else if(flag==9) {
-                Toast.makeText(this, "DRAW", Toast.LENGTH_SHORT).show();
+                dialog_show("Draw, play again!!");
             }
         }
     }
@@ -126,19 +130,37 @@ import androidx.core.view.WindowInsetsCompat;
         turn_o=findViewById(R.id.btn_o);
         play_again=findViewById(R.id.btnagain);
     }
-    public void playagain(){
-        count=0;
-        flag=0;
-        btn1.setText("");
-        btn2.setText("");
-        btn3.setText("");
-        btn4.setText("");
-        btn5.setText("");
-        btn6.setText("");
-        btn7.setText("");
-        btn8.setText("");
-        btn9.setText("");
-        turn_x.setBackgroundResource(R.drawable.turn_btn);
-        turn_o.setBackgroundResource(R.drawable.turnoff);
+
+    private void dialog_show(String text){
+        winning_dialog=new Dialog(this);
+        winning_dialog.setContentView(R.layout.winning_dialog_box);
+        winning_dialog.setCancelable(false);
+        btn_ok=winning_dialog.findViewById(R.id.btn_ok);
+        winner_text=winning_dialog.findViewById(R.id.winner);
+        winner_text.setText(text);
+        winning_dialog.show();
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playagain();
+                winning_dialog.dismiss();
+            }
+        });
     }
+
+        public void playagain(){
+            count=0;
+            flag=0;
+            btn1.setText("");
+            btn2.setText("");
+            btn3.setText("");
+            btn4.setText("");
+            btn5.setText("");
+            btn6.setText("");
+            btn7.setText("");
+            btn8.setText("");
+            btn9.setText("");
+            turn_x.setBackgroundResource(R.drawable.turn_btn);
+            turn_o.setBackgroundResource(R.drawable.turnoff);
+        }
 }
